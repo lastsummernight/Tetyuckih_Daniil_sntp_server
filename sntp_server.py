@@ -1,5 +1,7 @@
 import socket, time
 
+from sntp_client import sntp_server
+
 time_since_1900 = 2208988800
 
 
@@ -58,7 +60,7 @@ def int_in_bytes(value: int) -> list:
     return byte_list
 
 
-def echo_server(host='127.0.0.1', port=123):
+def sntp_server(host='127.0.0.1', port=123):
     with open("config.txt", "r") as config:
         delay = int(config.readline())
     print(delay)
@@ -77,4 +79,4 @@ def echo_server(host='127.0.0.1', port=123):
 
 
 if __name__ == "__main__":
-    echo_server()
+    sntp_server()
